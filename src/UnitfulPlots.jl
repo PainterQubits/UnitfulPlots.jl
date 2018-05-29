@@ -7,75 +7,75 @@ function unit_formatter(T, num)
 end
 
 # 2D plots (1 recipe for shorthand form)
-@recipe function f(val::AbstractVector{T}) where T<:Quantity
+@recipe function f(val::AbstractArray{T,N}) where {T<:Quantity,N}
     yformatter := x->unit_formatter(T,x)
     ustrip(val)
 end
 
 # 2D plots (2^4-1 user recipes)
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}
-                  ) where {S<:Quantity, T<:Quantity}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}
+                  ) where {S<:Quantity, T<:Quantity,N,M}
     xformatter := x->unit_formatter(S,x)
     yformatter := x->unit_formatter(T,x)
     ustrip(val), ustrip(val2)
 end
 
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}
-                  ) where {S<:Number, T<:Quantity}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}
+                  ) where {S<:Number, T<:Quantity, N, M}
     yformatter := x->unit_formatter(T,x)
     val, ustrip(val2)
 end
 
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}
-                  ) where {S<:Quantity, T<:Number}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}
+                  ) where {S<:Quantity, T<:Number, N, M}
     xformatter := x->unit_formatter(T,x)
     ustrip(val), val2
 end
 
 # 3D plots (2^8-1 user recipes)
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}, val3::AbstractMatrix{U}
-                  ) where {S<:Quantity, T<:Quantity, U<:Quantity}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}, val3::AbstractArray{U,P}
+                  ) where {S<:Quantity, T<:Quantity, U<:Quantity, N, M, P}
     xformatter := x->unit_formatter(S,x)
     yformatter := x->unit_formatter(T,x)
     zformatter := x->unit_formatter(U,x)
     ustrip(val), ustrip(val2), ustrip(val3)
 end
 
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}, val3::AbstractMatrix{U}
-                  ) where {S<:Quantity, T<:Quantity, U<:Number}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}, val3::AbstractArray{U,P}
+                  ) where {S<:Quantity, T<:Quantity, U<:Number, N, M, P}
     xformatter := x->unit_formatter(S,x)
     yformatter := x->unit_formatter(T,x)
     ustrip(val), ustrip(val2), val3
 end
 
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}, val3::AbstractMatrix{U}
-                  ) where {S<:Quantity, T<:Number, U<:Quantity}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}, val3::AbstractArray{U,P}
+                  ) where {S<:Quantity, T<:Number, U<:Quantity, N, M, P}
     xformatter := x->unit_formatter(S,x)
     zformatter := x->unit_formatter(U,x)
     ustrip(val), val2, ustrip(val3)
 end
 
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}, val3::AbstractMatrix{U}
-                  ) where {S<:Number, T<:Quantity, U<:Quantity}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}, val3::AbstractArray{U,P}
+                  ) where {S<:Number, T<:Quantity, U<:Quantity, N, M, P}
     yformatter := x->unit_formatter(T,x)
     zformatter := x->unit_formatter(U,x)
     val, ustrip(val2), ustrip(val3)
 end
 
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}, val3::AbstractMatrix{U}
-                  ) where {S<:Quantity, T<:Number, U<:Number}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}, val3::AbstractArray{U,P}
+                  ) where {S<:Quantity, T<:Number, U<:Number, N, M, P}
     xformatter := x->unit_formatter(S,x)
     ustrip(val), val2, val3
 end
 
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}, val3::AbstractMatrix{U}
-                  ) where {S<:Number, T<:Quantity, U<:Number}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}, val3::AbstractArray{U,P}
+                  ) where {S<:Number, T<:Quantity, U<:Number, N, M, P}
     yformatter := x->unit_formatter(T,x)
     val, ustrip(val2), val3
 end
 
-@recipe function f(val::AbstractVector{S}, val2::AbstractVector{T}, val3::AbstractMatrix{U}
-                  ) where {S<:Number, T<:Number, U<:Quantity}
+@recipe function f(val::AbstractArray{S,N}, val2::AbstractArray{T,M}, val3::AbstractArray{U,P}
+                  ) where {S<:Number, T<:Number, U<:Quantity, N, M, P}
     zformatter := x->unit_formatter(U,x)
     val, val2, ustrip(val3)
 end
