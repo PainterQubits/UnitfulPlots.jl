@@ -1,6 +1,6 @@
 module UnitfulPlots
 using Unitful
-importall RecipesBase
+using RecipesBase
 
 function unit_formatter(T, num)
     string(num)*string(unit(zero(T)))
