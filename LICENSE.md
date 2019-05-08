@@ -1,6 +1,6 @@
 The UnitfulPlots.jl package is licensed under the MIT "Expat" License:
 
-> Copyright (c) 2016: Andrew Keller.
+> Copyright (c) 2016, California Institute of Technology and other contributors. All rights reserved.
 > 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
@@ -19,4 +19,7 @@ The UnitfulPlots.jl package is licensed under the MIT "Expat" License:
 > LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 > OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 > SOFTWARE.
-> 
+
+Neither the name of the California Institute of Technology (“Caltech”) nor the names of its contributors (and/or sponsors) may be used to endorse or promote products derived from this software without specific prior written permission.
+
+Andrew Keller (original package author, assigning his copyright to California Institute of Technology) acknowledges the support of an IQIM Postdoctoral Scholarship (Institute for Quantum Information and Matter, an NSF Physics Frontiers Center, NSF Grant PHY-1125565).
