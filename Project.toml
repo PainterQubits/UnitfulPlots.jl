@@ -1,0 +1,8 @@
+name = "UnitfulPlots"
+uuid = "ba54ecf2-f500-44cc-af33-a01db2fa519b"
+authors = []
+version = "0.1.0"
+
+[deps]
+RecipesBase = "3cdcf5f2-1ef4-517c-9805-6587b60abb01"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
